@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NumViewer</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Nunito:wght@200;400&family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <!-- LANDING -->
+    <div class="landing">
+        <div class="landing-calc">
+            <div class="calc" id="calc">
+                <canvas id="preview" width="320" height="222"></canvas>
+                <button onclick="selectFile()" class="calcBtn calcBigBtn">Selectionner une image</button>
+                <input type="file" id="inputFile" hidden>
+                <div class="calc-settings-container">
+                    <div class="calc-settings-element">
+                        <p class="calc-settings-element-text" id="img_width_txt">Longueur (40)</p>
+                        <div class="slider">
+                            <input type="range" step="1" min="1" max="60" value="54" id="img_width">
+                        </div>
+                    </div>
+                    <div class="calc-settings-element">
+                        <p class="calc-settings-element-text" id="img_height_txt">Hauteur (30)</p>
+                        <div class="slider">
+                            <input type="range" step="1" min="1" max="60" value="37" id="img_height">
+                        </div>
+                    </div>
+                </div>
+                <div class="calc-settings-container">
+                    <div class="calc-settings-element">
+                        <p class="calc-settings-element-text" id="img_bg_txt">Fond (#FFFFFF)</p>
+                        <input type="color" id="img_bg" value="#FFFFFF" hidden>
+                        <button class="calcBtn" onclick="changeColor()">Changer</button>
+                    </div>
+                </div>        
+                <button onclick="getCode()" class="calcBtn calcBigBtn">Copier le code</button>
+            </div>
+        </div>
+        <div class="landing-text">
+            <h1>NumViewer</h1>
+            <h2>Mettre n'importe quelle image sur ta calculatrice</h2>
+        </div>
+        <div class="mouse-contener"><div class="mouse"></div></div>
+    </div>
+
+    <!-- TRANSITION -->
+    <div class="transition">
+        <h1>Tutoriel</h1>
+    </div>
+
+    <!-- TUTO -->
+    <div class="tuto">
+        <h1 style="margin:0">Etape 1</h1>
+        <h2>Convertir ton image</h2>
+        <p>
+            Utilise l'outil ci-dessus pour configurer ton image. Elle apparaîtra sur ta calculatrice exactement de la même manière que sur le site. Une fois fini, clique sur "Copier le code". Un programme python sera alors copié dans ton presse-papiers.
+        </p>
+
+        <h1>Etape 2</h1>
+        <h2>Créé le script sur ton compte numworks.</h2>
+        <p>
+            Rends-toi sur le site de <a href="https://my.numworks.com/python">numworks</a>. Connectes-toi à ton compte (si tu n'en a pas, tu peux en créer un gratuitement). Continue dans "mes scripts".
+        </p>
+        <img src="images/tuto1.png">
+        <p>Puis, créé un nouveau script.</p>
+        <img src="images/tuto2.png">
+        <p>Donne-lui un nom, peu importe tant qu'il finit par ".py". Il te suffit de coller dans l'éditeur de code ton programme copier précédemment.</p>
+        <div class="tuto-script-container">
+            <img src="images/tuto3.png">
+            <p>→</p>
+            <img src="images/tuto4.png">
+        </div>
+        <p>Sauvegarde ton script.</p>
+        <img src="images/tuto5.png">
+        <p>Attention ! Ne te fit pas a l'émulation du script, la preview ne marche pas toujours.</p>
+
+        <h1>Etape 3</h1>
+        <h2>Envoie et teste ton script !</h2>
+        <p>Connecte ta calculatrice, puis clique sur "Envoyer sur ma calculatrice"</p>
+        <img src="images/tuto6.png">
+        <p>Si c'est la première fois, tu devras installer un driver. Suis simplement les instructions du site.</p>
+    
+        <h1>Etape 4</h1>
+        <h2>C'est fini !</h2>
+        <p>À toi d'être créatifs. Si ton programme s'arrête sur une page blanche sans afficher l'image. Essaie de réduire la taille de celle-ci, elle est sans doute trop grande.</p>
+        <img src="images/tuto7.png" class="tuto-last">
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© Copyright 2021 - OnimStudio</p>
+        <p>contact.onimstudio@gmail.com</p>
+    </footer>
+
+
+    <!-- SCRIPT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>
