@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test</title>
+</head>
+<body>
+
+	<canvas id="canvas" width="500" height="500"></canvas>
+	
+	<script type="text/javascript">
+	var canvas = document.getElementById('canvas'),
+    	ctx = canvas.getContext('2d'),
+    	img = new Image(),
+    	play = false;
+
+	ctx.mozImageSmoothingEnabled = false;
+	ctx.webkitImageSmoothingEnabled = false;
+	ctx.imageSmoothingEnabled = false;
+
+	img.src = 'C:/Users/gemin/Pictures/ui.png';
+	img.onload = function() {
+    	pixelate(2);
+	};
+
+	function pixelate(v) {
+
+	    var size = v ? v * 0.01 : 1,
+        	w = canvas.width * size,
+        	h = canvas.height * size;
+
+    	ctx.drawImage(img, 0, 0, w, h);
+    	console.log(v)
+
+    	ctx.drawImage(canvas, 0, 0, w, h, 0, 0, canvas.width, canvas.height);
+	}
+	</script>
+</body>
+</html>
